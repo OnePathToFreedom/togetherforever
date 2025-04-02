@@ -313,9 +313,9 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('/images/rectangles/rectangle-1.png') no-repeat top left,
-                url('/images/rectangles/rectangle-2.png') no-repeat center,
-                url('/images/rectangles/rectangle-3.png') no-repeat bottom right;
+    background: url('images/rectangles/rectangle-1.png') no-repeat top left,
+                url('images/rectangles/rectangle-2.png') no-repeat center,
+                url('images/rectangles/rectangle-3.png') no-repeat bottom right;
     opacity: 0.1;
     pointer-events: none;
 }
