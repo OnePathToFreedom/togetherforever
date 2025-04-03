@@ -1,6 +1,7 @@
 /* Reset and base styles */
 html {
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 *, *::after, *::before {
@@ -15,6 +16,8 @@ body {
     line-height: 1.6;
     color: #333;
     background-color: #fff;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
 }
 
 .container {
@@ -33,6 +36,9 @@ body {
     top: 0;
     z-index: 1000;
     border-bottom: 1px solid #f0f0f0;
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .nav-bar {
@@ -84,6 +90,8 @@ body {
     background-color: #fff;
     position: relative;
     overflow: hidden;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .hero-content {
@@ -243,6 +251,8 @@ body {
 .services {
     padding: 80px 0;
     background-color: #fff;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .services-grid {
@@ -303,6 +313,8 @@ body {
     padding: 80px 0;
     background-color: #fff;
     position: relative;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .contact-info::before {
@@ -925,61 +937,65 @@ textarea {
 }
 
 .flags-section {
-    overflow: hidden;
     background-color: #F7E9FF;
-    padding: 15px 0;
+    padding: 30px 0;
     position: relative;
 }
 
 .flags-container {
     display: flex;
-    width: 100%;
-    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .flags {
     display: flex;
-    animation: scroll-flags 40s linear infinite;
-    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
 .flags img {
     height: 24px;
     width: auto;
     object-fit: contain;
-    transition: transform 0.3s ease;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
 }
 
 .flags img:hover {
-    transform: scale(1.5);
-    z-index: 2;
+    opacity: 1;
 }
 
-@keyframes scroll-flags {
-    0% {
-        transform: translateX(0);
+@media screen and (max-width: 768px) {
+    .flags-container {
+        gap: 15px;
     }
-    100% {
-        transform: translateX(-50%);
+    
+    .flags {
+        gap: 15px;
+    }
+    
+    .flags img {
+        height: 20px;
     }
 }
 
-.flags-section::before,
-.flags-section::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 100px;
-    height: 100%;
-    z-index: 1;
-}
-
-.flags-section::before {
-    left: 0;
-    background: linear-gradient(to right, #F7E9FF, transparent);
-}
-
-.flags-section::after {
-    right: 0;
-    background: linear-gradient(to left, #F7E9FF, transparent);
+@media screen and (max-width: 480px) {
+    .flags-container {
+        gap: 10px;
+    }
+    
+    .flags {
+        gap: 10px;
+    }
+    
+    .flags img {
+        height: 16px;
+    }
 }
