@@ -925,42 +925,69 @@ textarea {
 }
 
 .flags-section {
-    overflow: hidden;
     background-color: #F7E9FF;
-    padding: 15px 0;
     position: relative;
+    overflow: hidden;
+    width: 100%;
 }
 
 .flags-container {
-    display: flex;
     width: 100%;
     overflow: hidden;
+    position: relative;
 }
 
 .flags {
-    display: flex;
-    animation: scroll-flags 40s linear infinite;
-    gap: 15px;
+    display: inline-flex;
+    gap: 20px;
+    animation: moveFlags 45s linear infinite;
+    white-space: nowrap;
+    will-change: transform;
+    padding: 20px 0;
+    align-items: center;
+}
+
+.flags::after {
+    content: "";
+    display: block;
+    width: 20px;
 }
 
 .flags img {
+    display: block;
     height: 24px;
-    width: auto;
-    object-fit: contain;
-    transition: transform 0.3s ease;
+    width: 36px;
+    object-fit: cover;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    padding: 0;
+    margin: 0;
+    flex-shrink: 0;
+    position: relative;
+    transform-origin: center;
 }
 
 .flags img:hover {
+    opacity: 1;
     transform: scale(1.5);
-    z-index: 2;
+    z-index: 3;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-@keyframes scroll-flags {
+.flags img:hover + .flags {
+    animation-play-state: paused;
+}
+
+.flags:has(img:hover) {
+    animation-play-state: paused;
+}
+
+@keyframes moveFlags {
     0% {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-50%);
+        transform: translateX(calc(-50% - 10px));
     }
 }
 
@@ -969,9 +996,10 @@ textarea {
     content: '';
     position: absolute;
     top: 0;
-    width: 100px;
     height: 100%;
-    z-index: 1;
+    width: 100px;
+    z-index: 2;
+    pointer-events: none;
 }
 
 .flags-section::before {
@@ -982,4 +1010,21 @@ textarea {
 .flags-section::after {
     right: 0;
     background: linear-gradient(to left, #F7E9FF, transparent);
+}
+
+@media screen and (max-width: 768px) {
+    .flags {
+        gap: 15px;
+    }
+    
+    .flags img {
+        height: 20px;
+        width: 30px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .flags-section {
+        display: none;
+    }
 }
