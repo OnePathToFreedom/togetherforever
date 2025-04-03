@@ -147,12 +147,12 @@ body {
 .rectangle-left-4 {
     position: absolute;
     top: 10px;
-    left: 320px;
+    left: 0px;
     width: calc(70% + 40px);
     height: calc(100% + 70px);
-    background-color: #efc9f6;
+    background-color: #F8F3FF;
     clip-path: polygon(11% 5%, 79% 15%, 100% 89%, 0 96%);
-    z-index: 1;
+    z-index: 0;
 }
 
 
@@ -237,7 +237,6 @@ body {
     display: flex;
     justify-content: center;
     gap: 15px;
-    padding: 40px 0;
 }
 
 /* Services section */
@@ -272,7 +271,7 @@ body {
 }
 
 .service-card-image-wrapper:hover {
-    background-color: #f34af3;
+    background-color: #efc9f6;
 }
 
 .service-card img {
@@ -287,7 +286,7 @@ body {
     color: #000;
     font-size: 42px;
     margin-bottom: 15px;
-    font-family: 'Brush Script MT', cursive;
+    font-family: 'Mr Dafoe', cursive;
     line-height: 1;
 }
 
@@ -353,7 +352,7 @@ body {
 }
 
 .contact-item h3 {
-    font-family: 'Brush Script MT', cursive;
+    font-family: 'Mr Dafoe', cursive;
     font-size: 42px;
     color: #000;
     margin-bottom: 15px;
@@ -381,7 +380,8 @@ body {
 /* Contact form section */
 .contact-form {
     padding: 80px 0;
-    background-color: #F8F3FF;
+    background-color: #F7E9FF;
+    clip-path: polygon(7% 0, 86% 5%, 91% 95%, 14% 93%);
 }
 
 .form-container {
@@ -389,36 +389,67 @@ body {
     overflow: hidden;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .form-content {
-    padding: 40px;
+    padding: 60px;
 }
 
-.form-content h2 {
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 30px;
+.form-header {
+    margin-bottom: 40px;
+}
+
+.form-label {
+    color: #9370DB;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.form-title {
+    color: #000;
+    font-size: 42px;
+    font-family: 'Mr Dafoe', cursive;
+    margin-bottom: 15px;
+    line-height: 1;
+}
+
+.form-description {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.5;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: #000;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 input, textarea {
-    padding: 12px 15px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    font-size: 15px;
-    transition: border-color 0.3s ease;
+    padding: 15px;
+    border: 0.5px solid #000000;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: #ffffff;
 }
 
 input:focus, textarea:focus {
     outline: none;
     border-color: #9370DB;
+    background: #F7E9FF;
 }
 
 textarea {
@@ -426,16 +457,34 @@ textarea {
     resize: none;
 }
 
+.checkbox-group {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+}
+
+.checkbox-group label {
+    font-size: 14px;
+    color: #666;
+}
+
 .submit-btn {
     background-color: #9370DB;
     color: white;
-    padding: 12px;
+    padding: 15px;
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
     font-size: 16px;
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-top: 10px;
 }
 
 .submit-btn:hover {
@@ -445,6 +494,7 @@ textarea {
 .form-image {
     position: relative;
     height: 100%;
+    background: #F8F3FF;
 }
 
 .form-image img {
@@ -554,7 +604,7 @@ textarea {
     }
 
     .hero {
-        padding-top: 80px;
+        padding-top: 80px;  
     }
 
     .hero-content {
@@ -768,4 +818,168 @@ textarea {
     .nav-menu.active {
         display: flex;
     }
+}
+
+/* Hero text section */
+.hero-text-section {
+    background-color: #F7E9FF;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-text-block {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
+    align-items: center;
+    padding: 80px;
+}
+
+.hero-text-content {
+    max-width: 600px;
+}
+
+.hero-text-content p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    color: #000;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.hero-text-image {
+    position: relative;
+    height: 100%;
+}
+
+.hero-text-image::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: -60px;
+    width: calc(100% + 100px);
+    height: calc(100% + 40px);
+    background-color: #fff;
+    z-index: 0;
+    clip-path: polygon(0 0, 100% 3%, 100% 88%, 0 100%);
+
+}
+
+.hero-text-image::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    right: -60px;
+    width: calc(100% + 100px);
+    height: calc(100% + 40px);
+    background-color: #fff;
+    z-index: 0;
+    clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 87%);
+}
+
+.hero-text-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    z-index: 1;
+    position: relative;
+}
+
+@media screen and (max-width: 768px) {
+    .hero-text-section {
+        padding: 80px 0;
+    }
+
+    .hero-text-block {
+        grid-template-columns: 1fr;
+        padding: 60px 40px;
+        gap: 40px;
+    }
+
+    .hero-text-content h2 {
+        font-size: 32px;
+    }
+
+    .hero-text-content p {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero-text-section {
+        padding: 60px 0;
+    }
+
+    .hero-text-block {
+        padding: 40px 20px;
+    }
+
+    .hero-text-content h2 {
+        font-size: 28px;
+    }
+
+    .hero-text-content p {
+        font-size: 18px;
+    }
+}
+
+.flags-section {
+    overflow: hidden;
+    background-color: #F7E9FF;
+    padding: 15px 0;
+    position: relative;
+}
+
+.flags-container {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+}
+
+.flags {
+    display: flex;
+    animation: scroll-flags 40s linear infinite;
+    gap: 15px;
+}
+
+.flags img {
+    height: 24px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.flags img:hover {
+    transform: scale(1.5);
+    z-index: 2;
+}
+
+@keyframes scroll-flags {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.flags-section::before,
+.flags-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    z-index: 1;
+}
+
+.flags-section::before {
+    left: 0;
+    background: linear-gradient(to right, #F7E9FF, transparent);
+}
+
+.flags-section::after {
+    right: 0;
+    background: linear-gradient(to left, #F7E9FF, transparent);
 }
