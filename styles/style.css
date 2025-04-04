@@ -1,6 +1,8 @@
 /* Reset and base styles */
 html {
     box-sizing: border-box;
+    height: 100%;
+    overflow-x: hidden;
 }
 
 *, *::after, *::before {
@@ -15,6 +17,9 @@ body {
     line-height: 1.6;
     color: #333;
     background-color: #fff;
+    overflow-x: hidden;
+    min-height: 100%;
+    position: relative;
 }
 
 .container {
@@ -924,11 +929,13 @@ textarea {
     }
 }
 
+/* Flags section styles */
 .flags-section {
-    background-color: #F7E9FF;
-    position: relative;
-    overflow: hidden;
     width: 100%;
+    overflow: hidden;
+    background: rgba(147, 112, 219, 0.1);
+    padding: 20px 0;
+    margin: 40px 0;
 }
 
 .flags-container {
@@ -937,94 +944,117 @@ textarea {
     position: relative;
 }
 
-.flags {
-    display: inline-flex;
-    gap: 20px;
-    animation: moveFlags 45s linear infinite;
-    white-space: nowrap;
-    will-change: transform;
-    padding: 20px 0;
-    align-items: center;
+.flags-container::before,
+.flags-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    z-index: 2;
 }
 
-.flags::after {
-    content: "";
-    display: block;
-    width: 20px;
+.flags-container::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(147, 112, 219, 0.1), transparent);
+}
+
+.flags-container::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(147, 112, 219, 0.1), transparent);
+}
+
+.flags {
+    display: flex;
+    gap: 20px;
+    animation: scroll 60s linear infinite;
+    padding: 10px 0;
+    width: fit-content;
 }
 
 .flags img {
-    display: block;
-    height: 24px;
     width: 36px;
+    height: 24px;
     object-fit: cover;
-    opacity: 0.7;
-    transition: all 0.3s ease;
-    padding: 0;
-    margin: 0;
-    flex-shrink: 0;
-    position: relative;
-    transform-origin: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .flags img:hover {
-    opacity: 1;
-    transform: scale(1.5);
+    transform: scale(1.2);
     z-index: 3;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.flags img:hover + .flags {
-    animation-play-state: paused;
-}
-
-.flags:has(img:hover) {
-    animation-play-state: paused;
-}
-
-@keyframes moveFlags {
+@keyframes scroll {
     0% {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(calc(-50% - 10px));
+        transform: translateX(-50%);
     }
 }
 
-.flags-section::before,
-.flags-section::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 100px;
-    z-index: 2;
-    pointer-events: none;
+/* Добавляем стили для активного языка */
+.flags img.active {
+    box-shadow: 0 0 8px rgba(147, 112, 219, 0.8);
 }
 
-.flags-section::before {
-    left: 0;
-    background: linear-gradient(to right, #F7E9FF, transparent);
+/* Медиа-запросы для адаптивности */
+@media screen and (max-width: 768px) {
+    .flags img {
+        width: 30px;
+        height: 20px;
+    }
 }
 
-.flags-section::after {
-    right: 0;
-    background: linear-gradient(to left, #F7E9FF, transparent);
+/* Styles for info page */
+.info-page main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.info-page .hero-text-content h1 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 25px;
+    line-height: 1.3;
+}
+
+.info-page .hero-text-content p {
+    font-size: 18px;
+    margin-bottom: 15px;
+    line-height: 1.5;
 }
 
 @media screen and (max-width: 768px) {
-    .flags {
-        gap: 15px;
+    .info-page main {
+        padding-top: 80px;
     }
     
-    .flags img {
-        height: 20px;
-        width: 30px;
+    .info-page .hero-text-content h1 {
+        font-size: 28px;
+    }
+    
+    .info-page .hero-text-content p {
+        font-size: 16px;
     }
 }
 
 @media screen and (max-width: 480px) {
-    .flags-section {
-        display: none;
+    .info-page main {
+        padding-top: 60px;
+    }
+    
+    .info-page .hero-text-content h1 {
+        font-size: 24px;
+    }
+    
+    .info-page .hero-text-content p {
+        font-size: 14px;
     }
 }

@@ -1,0 +1,51 @@
+{
+    "nav": {
+        "home": "Home",
+        "info": "Info",
+        "contact": "Contact",
+        "service": "Service"
+    },
+    "hero": {
+        "title": "Ihre Brücke zur Zukunft in Deutschland!",
+        "description": "Liebe, Unterstützung und Integration für Einwanderer. Von Mentoring bis zu Rechtsberatung! Wir sind für Sie da, um Ihre Träume Wirklichkeit werden zu lassen.",
+        "slogan": {
+            "line1": "Gemeinsam",
+            "line2": "verwirklichen",
+            "line3": "wir Ihre Ziele!"
+        }
+    },
+    "services": {
+        "mentoring": {
+            "title": "Mentoring",
+            "description": "Unser erfahrenes Team kümmert sich um alle Details, damit Sie sich um das Wesentliche kümmern können."
+        },
+        "legal": {
+            "title": "Rechtsberatung",
+            "description": "Professionelle Unterstützung bei allen rechtlichen Fragen und Anliegen."
+        },
+        "help": {
+            "title": "Hilfe",
+            "description": "Unsere erfahrenen Psychologen stehen Ihnen zur Seite, um Ihnen bei der Bewältigung von Herausforderungen zu helfen."
+        }
+    },
+    "info": {
+        "title": "Über Together Forever",
+        "description1": "Together Forever ist Ihr verlässlicher Partner für Integration und Unterstützung in Deutschland.",
+        "description2": "Seit unserer Gründung haben wir uns darauf spezialisiert, Menschen bei ihrem Neustart in Deutschland zu unterstützen.",
+        "description3": "Unser erfahrenes Team bietet umfassende Beratung und praktische Hilfe in allen Lebensbereichen."
+    },
+    "contact": {
+        "title": "Kontaktiere uns",
+        "description": "Haben Sie Fragen oder Anliegen? Wir helfen Ihnen gerne weiter.",
+        "form": {
+            "name": "Name",
+            "email": "E-Mail",
+            "message": "Nachricht",
+            "terms": "Ich akzeptiere die Geschäftsbedingungen",
+            "submit": "Absenden"
+        }
+    },
+    "footer": {
+        "copyright": "© 2024 Together Forever. Alle Rechte vorbehalten."
+    }
+} 
