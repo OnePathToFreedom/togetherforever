@@ -939,9 +939,10 @@ textarea {
 }
 
 .flags-container {
+    position: relative;
     width: 100%;
     overflow: hidden;
-    position: relative;
+    padding: 10px 0;
 }
 
 .flags-container::before,
@@ -966,19 +967,20 @@ textarea {
 
 .flags {
     display: flex;
-    gap: 20px;
-    animation: scroll 60s linear infinite;
-    padding: 10px 0;
+    gap: 15px;
     width: fit-content;
+    animation: scroll 50s linear infinite;
 }
 
-.flags img {
+.flags:hover {
+    animation-play-state: paused;
+}
+
+.flag {
     width: 36px;
     height: 24px;
-    object-fit: cover;
     cursor: pointer;
-    transition: transform 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .flags img:hover {
